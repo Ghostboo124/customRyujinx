@@ -124,20 +124,16 @@ namespace Ryujinx.Cpu.Jit.HostTracked
         {
             ulong bit = va >> _pageCommitmentBits;
 
-            int index = (int)(bit / (sizeof(ulong) * 8));
-            int shift = (int)(bit % (sizeof(ulong) * 8));
+            int index = (int)(bit / BitsPerUlong);
+            int shift = (int)(bit % BitsPerUlong);
 
             ulong mask = 1UL << shift;
 
-            ulong oldMask = _pageCommitmentBitmap[index];
-
-            if ((oldMask & mask) == 0)
+            if ((Volatile.Read(ref _pageCommitmentBitmap[index]) & mask) == 0)
             {
                 lock (_pageCommitmentBitmap)
                 {
-                    oldMask = _pageCommitmentBitmap[index];
-
-                    if ((oldMask & mask) != 0)
+                    if ((Volatile.Read(ref _pageCommitmentBitmap[index]) & mask) != 0)
                     {
                         return;
                     }
@@ -145,17 +141,16 @@ namespace Ryujinx.Cpu.Jit.HostTracked
                     _nativePageTable.Commit(bit * _hostPageSize, _hostPageSize);
 
                     Span<ulong> pageSpan = MemoryMarshal.Cast<byte, ulong>(_nativePageTable.GetSpan(bit * _hostPageSize, (int)_hostPageSize));
-
-                    Debug.Assert(pageSpan.Length == _entriesPerPtPage);
+                    Debug.Assert(pageSpan.Length == _entriesPerPtPage, "Unexpected page span length.");
 
                     nint guardPagePtr = GetGuardPagePointer();
 
-                    for (int i = 0; i < pageSpan.Length; i++)
+                    Parallel.For(0, pageSpan.Length, i =>
                     {
                         pageSpan[i] = GetPte((bit << _pageCommitmentBits) | ((ulong)i * PageSize), guardPagePtr);
-                    }
+                    });
 
-                    _pageCommitmentBitmap[index] = oldMask | mask;
+                    Volatile.Write(ref _pageCommitmentBitmap[index], _pageCommitmentBitmap[index] | mask);
                 }
             }
         }
