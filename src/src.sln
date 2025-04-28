@@ -26,15 +26,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Graphics.Gpu", "Ryu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Graphics.Host1x", "Ryujinx.Graphics.Host1x\Ryujinx.Graphics.Host1x.csproj", "{24CE32D2-36CD-803D-D623-D7C90E21DCDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Graphics.Metal.SharpMetalExtensions", "Ryujinx.Graphics.Metal.SharpMetalExtensions\Ryujinx.Graphics.Metal.SharpMetalExtensions.csproj", "{1C4CB9EC-C124-74B5-63C6-BBB99EE36B6C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Graphics.Nvdec.FFmpeg", "Ryujinx.Graphics.Nvdec.FFmpeg\Ryujinx.Graphics.Nvdec.FFmpeg.csproj", "{58A06AC1-68D7-5E12-6649-9ADF14F454D1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Graphics.Nvdec.Vp9", "Ryujinx.Graphics.Nvdec.Vp9\Ryujinx.Graphics.Nvdec.Vp9.csproj", "{32CEB713-BE0D-B39F-4638-E700A4EDC59F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Graphics.Nvdec", "Ryujinx.Graphics.Nvdec\Ryujinx.Graphics.Nvdec.csproj", "{D8BBD08F-9434-DD2F-918E-0D923BFFA220}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Graphics.OpenGL", "Ryujinx.Graphics.OpenGL\Ryujinx.Graphics.OpenGL.csproj", "{A40D74A1-C1A6-4986-B5EC-499D878AD22F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Graphics.Shader", "Ryujinx.Graphics.Shader\Ryujinx.Graphics.Shader.csproj", "{B07A9474-365A-21DA-D540-7503B66D61F3}"
 EndProject
@@ -136,26 +128,10 @@ Global
 		{24CE32D2-36CD-803D-D623-D7C90E21DCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24CE32D2-36CD-803D-D623-D7C90E21DCDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24CE32D2-36CD-803D-D623-D7C90E21DCDB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C4CB9EC-C124-74B5-63C6-BBB99EE36B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C4CB9EC-C124-74B5-63C6-BBB99EE36B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C4CB9EC-C124-74B5-63C6-BBB99EE36B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C4CB9EC-C124-74B5-63C6-BBB99EE36B6C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{58A06AC1-68D7-5E12-6649-9ADF14F454D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{58A06AC1-68D7-5E12-6649-9ADF14F454D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58A06AC1-68D7-5E12-6649-9ADF14F454D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58A06AC1-68D7-5E12-6649-9ADF14F454D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32CEB713-BE0D-B39F-4638-E700A4EDC59F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32CEB713-BE0D-B39F-4638-E700A4EDC59F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32CEB713-BE0D-B39F-4638-E700A4EDC59F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32CEB713-BE0D-B39F-4638-E700A4EDC59F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D8BBD08F-9434-DD2F-918E-0D923BFFA220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8BBD08F-9434-DD2F-918E-0D923BFFA220}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8BBD08F-9434-DD2F-918E-0D923BFFA220}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8BBD08F-9434-DD2F-918E-0D923BFFA220}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A40D74A1-C1A6-4986-B5EC-499D878AD22F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A40D74A1-C1A6-4986-B5EC-499D878AD22F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A40D74A1-C1A6-4986-B5EC-499D878AD22F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A40D74A1-C1A6-4986-B5EC-499D878AD22F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B07A9474-365A-21DA-D540-7503B66D61F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B07A9474-365A-21DA-D540-7503B66D61F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B07A9474-365A-21DA-D540-7503B66D61F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
