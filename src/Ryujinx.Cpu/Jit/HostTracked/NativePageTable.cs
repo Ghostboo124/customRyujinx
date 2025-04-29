@@ -3,13 +3,17 @@ using Ryujinx.Memory;
 using System;
 using System.Diagnostics;
 using System.Numerics;
+using System.Threading;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace Ryujinx.Cpu.Jit.HostTracked
 {
     sealed class NativePageTable : IDisposable
     {
         private delegate ulong TrackingEventDelegate(ulong address, ulong size, bool write);
+        private const int BitsPerUlong = sizeof(ulong) * 8;
+
 
         private const int PageBits = 12;
         private const int PageSize = 1 << PageBits;
