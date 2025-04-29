@@ -8,9 +8,7 @@ using Gommon;
 using LibHac.Common;
 using LibHac.Ns;
 using Ryujinx.Audio.Backends.Dummy;
-using Ryujinx.Audio.Backends.OpenAL;
 using Ryujinx.Audio.Backends.SDL2;
-using Ryujinx.Audio.Backends.SoundIo;
 using Ryujinx.Audio.Integration;
 using Ryujinx.Ava.Common;
 using Ryujinx.Ava.Common.Locale;
@@ -905,8 +903,6 @@ namespace Ryujinx.Ava.Systems
             List<AudioBackend> availableBackends =
             [
                 AudioBackend.SDL2,
-                AudioBackend.SoundIo,
-                AudioBackend.OpenAl,
                 AudioBackend.Dummy
             ];
 
@@ -944,8 +940,6 @@ namespace Ryujinx.Ava.Systems
                 deviceDriver = currentBackend switch
                 {
                     AudioBackend.SDL2 => InitializeAudioBackend<SDL2HardwareDeviceDriver>(AudioBackend.SDL2, nextBackend),
-                    AudioBackend.SoundIo => InitializeAudioBackend<SoundIoHardwareDeviceDriver>(AudioBackend.SoundIo, nextBackend),
-                    AudioBackend.OpenAl => InitializeAudioBackend<OpenALHardwareDeviceDriver>(AudioBackend.OpenAl, nextBackend),
                     _ => new DummyHardwareDeviceDriver(),
                 };
 

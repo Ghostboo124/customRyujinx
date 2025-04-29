@@ -4,11 +4,7 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARMeilleure", "ARMeilleure\ARMeilleure.csproj", "{89C196C9-6036-6899-7130-F4DCA2084872}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Audio.Backends.OpenAL", "Ryujinx.Audio.Backends.OpenAL\Ryujinx.Audio.Backends.OpenAL.csproj", "{CCC3F624-B975-2134-653F-C47245885605}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Audio.Backends.SDL2", "Ryujinx.Audio.Backends.SDL2\Ryujinx.Audio.Backends.SDL2.csproj", "{B62443AF-A51C-E84F-13B8-69E3258AB665}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Audio.Backends.SoundIo", "Ryujinx.Audio.Backends.SoundIo\Ryujinx.Audio.Backends.SoundIo.csproj", "{56A7CCBB-B666-A848-93F9-81F93A03DB04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Audio", "Ryujinx.Audio\Ryujinx.Audio.csproj", "{39FB5C42-8401-C44E-9E39-0D69904A6152}"
 EndProject
@@ -41,8 +37,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.HLE.Generators", "Ryujinx.HLE.Generators\Ryujinx.HLE.Generators.csproj", "{DEC9BC36-33CC-ADDF-889B-6F975AAAB27C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.HLE", "Ryujinx.HLE\Ryujinx.HLE.csproj", "{7F6DA717-AEA4-B084-3B0A-13320D6B5CA4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Headless.SDL2", "Ryujinx.Headless.SDL2\Ryujinx.Headless.SDL2.csproj", "{2422A516-55A8-C794-2C18-12FA2733B301}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryujinx.Horizon.Common", "Ryujinx.Horizon.Common\Ryujinx.Horizon.Common.csproj", "{C99D0677-478C-3097-46D1-CC4F263688D1}"
 EndProject
@@ -84,18 +78,10 @@ Global
 		{89C196C9-6036-6899-7130-F4DCA2084872}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89C196C9-6036-6899-7130-F4DCA2084872}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89C196C9-6036-6899-7130-F4DCA2084872}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CCC3F624-B975-2134-653F-C47245885605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCC3F624-B975-2134-653F-C47245885605}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCC3F624-B975-2134-653F-C47245885605}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCC3F624-B975-2134-653F-C47245885605}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B62443AF-A51C-E84F-13B8-69E3258AB665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B62443AF-A51C-E84F-13B8-69E3258AB665}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B62443AF-A51C-E84F-13B8-69E3258AB665}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B62443AF-A51C-E84F-13B8-69E3258AB665}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56A7CCBB-B666-A848-93F9-81F93A03DB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56A7CCBB-B666-A848-93F9-81F93A03DB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56A7CCBB-B666-A848-93F9-81F93A03DB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56A7CCBB-B666-A848-93F9-81F93A03DB04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{39FB5C42-8401-C44E-9E39-0D69904A6152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{39FB5C42-8401-C44E-9E39-0D69904A6152}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39FB5C42-8401-C44E-9E39-0D69904A6152}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -160,10 +146,6 @@ Global
 		{7F6DA717-AEA4-B084-3B0A-13320D6B5CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F6DA717-AEA4-B084-3B0A-13320D6B5CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F6DA717-AEA4-B084-3B0A-13320D6B5CA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2422A516-55A8-C794-2C18-12FA2733B301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2422A516-55A8-C794-2C18-12FA2733B301}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2422A516-55A8-C794-2C18-12FA2733B301}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2422A516-55A8-C794-2C18-12FA2733B301}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C99D0677-478C-3097-46D1-CC4F263688D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C99D0677-478C-3097-46D1-CC4F263688D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C99D0677-478C-3097-46D1-CC4F263688D1}.Release|Any CPU.ActiveCfg = Release|Any CPU

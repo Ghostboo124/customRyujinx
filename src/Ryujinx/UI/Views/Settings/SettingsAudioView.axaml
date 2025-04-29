@@ -37,12 +37,6 @@
                         <ComboBoxItem>
                             <TextBlock Text="{ext:Locale SettingsTabSystemAudioBackendDummy}" />
                         </ComboBoxItem>
-                        <ComboBoxItem IsEnabled="{Binding IsOpenAlEnabled}">
-                            <TextBlock Text="{ext:Locale SettingsTabSystemAudioBackendOpenAL}" />
-                        </ComboBoxItem>
-                        <ComboBoxItem IsEnabled="{Binding IsSoundIoEnabled}">
-                            <TextBlock Text="{ext:Locale SettingsTabSystemAudioBackendSoundIO}" />
-                        </ComboBoxItem>
                         <ComboBoxItem IsEnabled="{Binding IsSDL2Enabled}">
                             <TextBlock Text="{ext:Locale SettingsTabSystemAudioBackendSDL2}" />
                         </ComboBoxItem>
