@@ -33,17 +33,9 @@
                                 ToolTip.Tip="{ext:Locale SettingsTabGraphicsBackendTooltip}"
                                 Text="{ext:Locale SettingsTabGraphicsBackend}"
                                 Width="250" />
-                        <ComboBox Width="350"
-                                HorizontalContentAlignment="Left"
-                                ToolTip.Tip="{ext:Locale SettingsTabGraphicsBackendTooltip}"
-                                SelectedIndex="{Binding GraphicsBackendIndex}">
-                            <ComboBoxItem IsVisible="{Binding IsVulkanAvailable}">
-                                <TextBlock Text="Vulkan" />
-                            </ComboBoxItem>
-                            <ComboBoxItem IsEnabled="{Binding IsOpenGLAvailable}">
-                                <TextBlock Text="OpenGL" />
-                            </ComboBoxItem>
-                        </ComboBox>
+                        <TextBlock VerticalAlignment="Center"
+                                Text="Vulkan"
+                                Width="350" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" IsVisible="{Binding IsVulkanSelected}">
                         <TextBlock VerticalAlignment="Center"

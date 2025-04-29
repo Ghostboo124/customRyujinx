@@ -128,7 +128,7 @@ namespace Ryujinx.Ava.UI.ViewModels
             }
         }
 
-        public bool IsOpenGLAvailable => !OperatingSystem.IsMacOS();
+        public bool IsOpenGLAvailable => false;
 
         public bool EnableDiscordIntegration { get; set; }
         public bool ShowConfirmExit { get; set; }
