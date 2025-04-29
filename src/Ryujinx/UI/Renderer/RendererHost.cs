@@ -21,7 +21,6 @@ namespace Ryujinx.Ava.UI.Renderer
 
             EmbeddedWindow = ConfigurationState.Instance.Graphics.GraphicsBackend.Value switch
             {
-                GraphicsBackend.OpenGl => new EmbeddedWindowOpenGL(),
                 GraphicsBackend.Vulkan => new EmbeddedWindowVulkan(),
                 _ => throw new NotSupportedException()
             };
@@ -33,7 +32,6 @@ namespace Ryujinx.Ava.UI.Renderer
             EmbeddedWindow switch
             {
                 EmbeddedWindowVulkan => GraphicsBackend.Vulkan,
-                EmbeddedWindowOpenGL => GraphicsBackend.OpenGl,
                 _ => throw new NotImplementedException()
             };
         

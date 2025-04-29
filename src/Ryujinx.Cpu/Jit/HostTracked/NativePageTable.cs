@@ -12,8 +12,6 @@ namespace Ryujinx.Cpu.Jit.HostTracked
     sealed class NativePageTable : IDisposable
     {
         private delegate ulong TrackingEventDelegate(ulong address, ulong size, bool write);
-        private const int BitsPerUlong = sizeof(ulong) * 8;
-
 
         private const int PageBits = 12;
         private const int PageSize = 1 << PageBits;
@@ -21,6 +19,7 @@ namespace Ryujinx.Cpu.Jit.HostTracked
 
         private const int PteSize = 8;
 
+        private const int BitsPerUlong = sizeof(ulong) * 8;
         private readonly int _bitsPerPtPage;
         private readonly int _entriesPerPtPage;
         private readonly int _pageCommitmentBits;
@@ -148,11 +147,14 @@ namespace Ryujinx.Cpu.Jit.HostTracked
                     Debug.Assert(pageSpan.Length == _entriesPerPtPage, "Unexpected page span length.");
 
                     nint guardPagePtr = GetGuardPagePointer();
+                    ulong[] pageArray = pageSpan.ToArray();
 
-                    Parallel.For(0, pageSpan.Length, i =>
+                    Parallel.For(0, pageArray.Length, i =>
                     {
-                        pageSpan[i] = GetPte((bit << _pageCommitmentBits) | ((ulong)i * PageSize), guardPagePtr);
+                        pageArray[i] = GetPte((bit << _pageCommitmentBits) | ((ulong)i * PageSize), guardPagePtr);
                     });
+
+                    pageArray.CopyTo(pageSpan);
 
                     Volatile.Write(ref _pageCommitmentBitmap[index], _pageCommitmentBitmap[index] | mask);
                 }

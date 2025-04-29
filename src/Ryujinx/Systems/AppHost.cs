@@ -33,7 +33,6 @@ using Ryujinx.Common.Utilities;
 using Ryujinx.Graphics.GAL;
 using Ryujinx.Graphics.GAL.Multithreading;
 using Ryujinx.Graphics.Gpu;
-using Ryujinx.Graphics.OpenGL;
 using Ryujinx.Graphics.Vulkan;
 using Ryujinx.HLE.FileSystem;
 using Ryujinx.HLE.HOS;
@@ -637,21 +636,8 @@ namespace Ryujinx.Ava.Systems
                 _windowsMultimediaTimerResolution?.Dispose();
                 _windowsMultimediaTimerResolution = null;
             }
-
-            if (RendererHost.EmbeddedWindow is EmbeddedWindowOpenGL openGlWindow)
-            {
-                // Try to bind the OpenGL context before calling the shutdown event.
-                openGlWindow.MakeCurrent(false, false);
-
-                Device.DisposeGpu();
-
-                // Unbind context and destroy everything.
-                openGlWindow.MakeCurrent(true, false);
-            }
-            else
-            {
-                Device.DisposeGpu();
-            }
+            
+            Device.DisposeGpu();
         }
 
         private void HideCursorState_Changed(object sender, ReactiveEventArgs<HideCursorMode> state)
@@ -897,7 +883,6 @@ namespace Ryujinx.Ava.Systems
                     ConfigurationState.Instance.Graphics.PreferredGpu,
                     (RendererHost.EmbeddedWindow as EmbeddedWindowVulkan)!.CreateSurface,
                     VulkanHelper.GetRequiredInstanceExtensions),
-                _ => new OpenGLRenderer()
             };
 
             // Initialize Configuration.
@@ -1013,7 +998,7 @@ namespace Ryujinx.Ava.Systems
 
             _renderer.ScreenCaptured += Renderer_ScreenCaptured;
 
-            (RendererHost.EmbeddedWindow as EmbeddedWindowOpenGL)?.InitializeBackgroundContext(_renderer);
+            // (RendererHost.EmbeddedWindow as EmbeddedWindowOpenGL)?.InitializeBackgroundContext(_renderer);
 
             Device.Gpu.Renderer.Initialize(_glLogLevel);
 
@@ -1058,7 +1043,7 @@ namespace Ryujinx.Ava.Systems
                             InitStatus();
                         }
 
-                        Device.PresentFrame(() => (RendererHost.EmbeddedWindow as EmbeddedWindowOpenGL)?.SwapBuffers());
+                        // Device.PresentFrame(() => (RendererHost.EmbeddedWindow as EmbeddedWindowOpenGL)?.SwapBuffers());
                     }
 
                     if (_ticks >= _ticksPerFrame)
@@ -1076,7 +1061,7 @@ namespace Ryujinx.Ava.Systems
                 _gpuDoneEvent.Set();
             });
 
-            (RendererHost.EmbeddedWindow as EmbeddedWindowOpenGL)?.MakeCurrent(true);
+            // (RendererHost.EmbeddedWindow as EmbeddedWindowOpenGL)?.MakeCurrent(true);
             
             // Reload settings when the game is turned off
             // (resets custom settings if there were any)
@@ -1091,7 +1076,6 @@ namespace Ryujinx.Ava.Systems
             _viewModel.BackendText = RendererHost.Backend switch
             {
                 GraphicsBackend.Vulkan => "Vulkan",
-                GraphicsBackend.OpenGl => "OpenGL",
                 _ => throw new NotImplementedException()
             };
 

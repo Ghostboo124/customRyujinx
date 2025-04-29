@@ -18,7 +18,6 @@ using Ryujinx.Common.GraphicsDriver;
 using Ryujinx.Common.Logging;
 using Ryujinx.Common.SystemInterop;
 using Ryujinx.Graphics.Vulkan.MoltenVK;
-using Ryujinx.Headless;
 using Ryujinx.SDL2.Common;
 using System;
 using System.Collections.Generic;
@@ -55,12 +54,6 @@ namespace Ryujinx.Ava
             }
 
             PreviewerDetached = true;
-            
-            if (args.Length > 0 && args[0] is "--no-gui" or "nogui")
-            {
-                HeadlessRyujinx.Entrypoint(args[1..]);
-                return 0;
-            }
 
             Initialize(args);
             
